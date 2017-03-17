@@ -1,0 +1,20 @@
+There are 4 pieces for each player;
+BISHOP, PAWN, KNIGHT, ROOK
+- The bishop stays on the same color that it starts on 
+	- One starts on white and one starts on black squares 
+	
+- The pawn can be placed anywhere on the board unlike regular chess
+- it can move one square forward in a turn 
+- captures diagonally
+- when the pawn gets to the other side of the board or you started it on the other side of the board, it moves BACKWARDS 
+
+knight & rook - same as chess 
+
+The object of the game is to make a line with your pieces horizontally, vertically or diagonally
+
+game starts with no pieces on the board
+
+white always starts
+
+in the first 3 turns players can only place pieces on the board, they CAN NOT capture or move 
+ 
