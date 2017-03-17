@@ -1,5 +1,9 @@
 package com.jigglypuff.globals;
 
-public class StaticObjects {
+import java.util.Scanner;
 
+public class StaticObjects {
+	
+	public static Scanner input = new Scanner(System.in);
+	
 }
