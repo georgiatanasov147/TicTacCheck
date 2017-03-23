@@ -1,24 +1,31 @@
 package com.jigglypuff.application;
 
-import com.jigglypuff.globals.StaticObjects;
+
+import com.jigglypuff.components.pieces.Bishop;
+import com.jigglypuff.components.pieces.Knight;
+import com.jigglypuff.components.pieces.Pawn;
+import com.jigglypuff.components.pieces.Rook;
+import com.jigglypuff.components.tools.MainFrame;
+import com.jigglypuff.components.*;
 
 public class TicTacCheckApplication {
 
+	public static MainFrame mf;
+	
 	public static void main(String[] args) {
-		System.out.println("Another one... I mean, git push.");
-		String word = StaticObjects.input.nextLine();
-		for (int i = 0; i < 4; i++)
-		{
-			System.out.println(i+word);
-		}//for
+ 
+		Bishop white_bishop = new Bishop("images/w_bishop.png",Color.WHITE);
+		Knight white_knight = new Knight("images/w_knight.png",Color.WHITE);
+		Pawn white_pawn = new Pawn("images/w_pawn.png",Color.WHITE);
+		Rook white_rook = new Rook("images/w_rook.png",Color.WHITE);
 		
-		function();
+		Bishop black_bishop = new Bishop("images/b_bishop.png",Color.BLACK);
+		Knight black_knight = new Knight("images/b_knight.png",Color.BLACK);
+		Pawn black_pawn = new Pawn("images/b_pawn.png",Color.BLACK);
+		Rook black_rook = new Rook("images/b_rook.png",Color.BLACK);
 		
+		mf = new MainFrame("TicTacCheck");
 	}//main
 	
-	public static void function()
-	{
-		System.out.println("Naaaaaa Sivaniaaaaa I have no ideaaaaa...");
-	}//function
-	
+
 }//class TicTacCheckApplication

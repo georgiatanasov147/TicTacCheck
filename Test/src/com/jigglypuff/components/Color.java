@@ -1,5 +1,5 @@
 package com.jigglypuff.components;
 
-public interface IPiece {
-	
+public enum Color {
+	WHITE,BLACK
 }

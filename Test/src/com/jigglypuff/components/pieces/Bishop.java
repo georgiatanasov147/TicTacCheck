@@ -1,7 +1,15 @@
 package com.jigglypuff.components.pieces;
 
-import com.jigglypuff.components.IPiece;
+import com.jigglypuff.components.AbstractPiece;
+import com.jigglypuff.components.Color;
+import com.jigglypuff.components.Type;
+import com.jigglypuff.globals.StaticObjects;
 
-public class Bishop implements IPiece{
+public class Bishop extends AbstractPiece{
 
+	public Bishop(String imageFile,Color color) {
+		super(imageFile,color,StaticObjects.begin);
+		setType(Type.BISHOP);
+		
+	}
 }
