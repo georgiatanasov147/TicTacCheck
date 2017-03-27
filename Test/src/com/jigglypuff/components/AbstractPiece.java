@@ -1,9 +1,11 @@
 package com.jigglypuff.components;
 
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 
+import javax.swing.RepaintManager;
 import com.jigglypuff.application.TicTacCheckApplication;
 import com.jigglypuff.globals.StaticObjects;
 
@@ -21,7 +23,7 @@ public class AbstractPiece {
 		setInitialXY(x);
 		addToList();
 	}
-	
+
 	private void setInitialXY(int x){
 		setImageX(x);
 		if(getColor() == Color.WHITE){
@@ -175,5 +177,6 @@ public class AbstractPiece {
 	public void setOldY(int oldY) {
 		this.oldY = oldY;
 	}
+
 
 }

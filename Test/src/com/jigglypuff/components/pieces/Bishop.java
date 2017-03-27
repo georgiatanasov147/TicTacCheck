@@ -1,5 +1,7 @@
 package com.jigglypuff.components.pieces;
 
+import java.awt.Graphics;
+
 import com.jigglypuff.components.AbstractPiece;
 import com.jigglypuff.components.Color;
 import com.jigglypuff.components.Type;
@@ -12,4 +14,5 @@ public class Bishop extends AbstractPiece{
 		setType(Type.BISHOP);
 		
 	}
+	
 }

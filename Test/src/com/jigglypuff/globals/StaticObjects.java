@@ -3,7 +3,6 @@ package com.jigglypuff.globals;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import com.jigglypuff.components.AbstractPiece;
 import com.jigglypuff.components.board.Board;
 import com.jigglypuff.components.tools.MainPanel;
@@ -20,5 +19,5 @@ public class StaticObjects {
 	public static ArrayList<AbstractPiece> pieces = new ArrayList<AbstractPiece>();
 	public static final Color brown = new Color(77,12,0);
 	public static final Color white = new Color(251,220,155);
-
+	public static boolean flag = false;
 }

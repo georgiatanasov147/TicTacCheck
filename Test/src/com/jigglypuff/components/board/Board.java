@@ -1,18 +1,27 @@
 package com.jigglypuff.components.board;
 
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 
+import com.jigglypuff.application.TicTacCheckApplication;
 import com.jigglypuff.globals.StaticObjects;
 
 public class Board {
 	
 	private int[][] board;
 	
-
+	private Image img;
 	
 	public Board() {
+		img = Toolkit.getDefaultToolkit().getImage(Board.class.getResource("board.jpg"));
+		img = img.getScaledInstance(240, 240, Image.SCALE_AREA_AVERAGING);
 		board = new int[16][2];
 		initialiseBoard();
+	}
+	
+	public void drawBoard(Graphics g){
+		g.drawImage(img, 100, 100, StaticObjects.panel);
 	}
 	public void initialiseBoard() {
 		int x = StaticObjects.begin;

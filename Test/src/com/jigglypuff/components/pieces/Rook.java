@@ -12,5 +12,5 @@ public class Rook extends AbstractPiece{
 		setType(Type.ROOK);
 	}
 
-
+	
 }

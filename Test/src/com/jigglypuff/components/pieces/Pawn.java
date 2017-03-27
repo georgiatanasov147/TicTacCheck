@@ -11,4 +11,6 @@ public class Pawn extends AbstractPiece{
 		super(imageFile,color,StaticObjects.begin+2*StaticObjects.SL);
 		setType(Type.PAWN);
 	}
+	
+	
 }

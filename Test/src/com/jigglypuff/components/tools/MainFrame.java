@@ -20,6 +20,7 @@ public class MainFrame extends JFrame{
 		m = new MouseController();
 		addMouseMotionListener(m);
 		addMouseListener(m);
+		
 		add(StaticObjects.panel);
 		pack();
 		setVisible(true);

@@ -1,14 +1,10 @@
 package com.jigglypuff.components.tools;
 
-import java.awt.Component;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-
 import javax.swing.SwingUtilities;
-
-import com.jigglypuff.application.TicTacCheckApplication;
 import com.jigglypuff.components.AbstractPiece;
 import com.jigglypuff.globals.StaticObjects;
 
@@ -48,6 +44,7 @@ public class MouseController implements MouseMotionListener, MouseListener{
 		for (AbstractPiece piece: StaticObjects.pieces) {
 			if (isOnPiece(currentPoint(e),piece)) {
 				p = piece;
+				StaticObjects.flag=true;
 			}
 		}
 	}
@@ -55,7 +52,7 @@ public class MouseController implements MouseMotionListener, MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (p != null) {
-			p.fixPosition(e.getX()-StaticObjects.SL/2, e.getY()-StaticObjects.SL/2);
+			p.fixPosition((int)currentPoint(e).getX()-StaticObjects.SL/2,(int)currentPoint(e).getY()-StaticObjects.SL/2);
 			StaticObjects.panel.repaint();
 		}
 		p = null;
@@ -76,8 +73,8 @@ public class MouseController implements MouseMotionListener, MouseListener{
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		if(p!=null){
-			p.setImageX(e.getX()-StaticObjects.SL/2);
-			p.setImageY(e.getY()-StaticObjects.SL/2);
+			p.setImageX((int)currentPoint(e).getX()-StaticObjects.SL/2);
+			p.setImageY((int)currentPoint(e).getY()-StaticObjects.SL/2);
 			StaticObjects.panel.repaint();
 		}
 	}
