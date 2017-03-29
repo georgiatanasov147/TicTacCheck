@@ -8,7 +8,8 @@ import java.awt.Image;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.RepaintManager;
-import com.jigglypuff.components.AbstractPiece;
+import com.jigglypuff.components.Piece;
+import com.jigglypuff.components.pieces.Knight;
 import com.jigglypuff.globals.StaticObjects;
 
 public class MainPanel extends JPanel {
@@ -17,7 +18,7 @@ public class MainPanel extends JPanel {
 	
 	
 	public MainPanel() {
-		RepaintManager.currentManager(null).setDoubleBufferingEnabled(false);
+		RepaintManager.currentManager(null).setDoubleBufferingEnabled(true);
 		setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 
@@ -25,7 +26,6 @@ public class MainPanel extends JPanel {
 		return new Dimension(StaticObjects.WindowSize, StaticObjects.WindowSize);
 	}
 	
-	boolean flag = true;
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -35,12 +35,17 @@ public class MainPanel extends JPanel {
 		
 		
 		//board
-		
-//		StaticObjects.board.paintBoard(g);
+
 		StaticObjects.board.drawBoard(g);
 		
+		if(StaticObjects.piece_index<=7){
+			StaticObjects.pieces.get(StaticObjects.piece_index).paintPositions(g);
+			StaticObjects.position_switch++;
+		}
+			
+		
 		//pieces
-		for (AbstractPiece piece: StaticObjects.pieces) {
+		for (Piece piece: StaticObjects.pieces) {
 			g.drawImage(piece.getImage(), piece.getImageX(), piece.getImageY(), this);			
 		}
 	}

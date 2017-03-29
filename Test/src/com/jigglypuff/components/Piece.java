@@ -7,22 +7,28 @@ import java.awt.Toolkit;
 
 import javax.swing.RepaintManager;
 import com.jigglypuff.application.TicTacCheckApplication;
+import com.jigglypuff.components.pieces.Knight;
 import com.jigglypuff.globals.StaticObjects;
 
-public class AbstractPiece {
+public abstract class Piece {
 	protected Image image;
 	protected int imageWidth = StaticObjects.X, imageHeight = StaticObjects.Y;
 	protected int imageX, imageY, initX, initY, oldX, oldY;
 	protected Type type;
 	protected Color color;
+	protected Image cross;
 	
-	public AbstractPiece(String imageFile,Color color,int x) {
+	public Piece(String imageFile,Color color,int x) {
 		image = Toolkit.getDefaultToolkit().getImage(TicTacCheckApplication.class.getResource(imageFile));
 		image = image.getScaledInstance(imageWidth, imageHeight, Image.SCALE_AREA_AVERAGING);
+		cross = Toolkit.getDefaultToolkit().getImage(Piece.class.getResource("pieces/cross.png"));
+		cross = cross.getScaledInstance(imageWidth, imageHeight, Image.SCALE_AREA_AVERAGING);
 		setColor(color);
 		setInitialXY(x);
 		addToList();
 	}
+	public abstract void paintPositions(Graphics g);
+	public abstract void initPos();
 
 	private void setInitialXY(int x){
 		setImageX(x);
@@ -70,7 +76,6 @@ public class AbstractPiece {
 			}
 		}
 		boolean permission = checkForOtherPieces(newX, newY);
-//		permission = checkValidPosition(newX,newY);
 		if(permission){
 			imageX = newX;
 			imageY = newY;
@@ -92,7 +97,7 @@ public class AbstractPiece {
 	}
 	
 	public boolean checkForOtherPieces(int newX,int newY){
-		for (AbstractPiece piece:StaticObjects.pieces) {
+		for (Piece piece:StaticObjects.pieces) {
 			if(piece.getImageX()==newX && piece.getImageY()==newY){
 				if(piece.getColor() != getColor()){
 					piece.restart();

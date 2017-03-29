@@ -21,7 +21,7 @@ public class Board {
 	}
 	
 	public void drawBoard(Graphics g){
-		g.drawImage(img, 100, 100, StaticObjects.panel);
+		g.drawImage(img, StaticObjects.begin, StaticObjects.begin, StaticObjects.panel);
 	}
 	public void initialiseBoard() {
 		int x = StaticObjects.begin;

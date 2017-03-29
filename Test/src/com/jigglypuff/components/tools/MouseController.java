@@ -5,13 +5,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import javax.swing.SwingUtilities;
-import com.jigglypuff.components.AbstractPiece;
+import com.jigglypuff.components.Piece;
 import com.jigglypuff.globals.StaticObjects;
 
 public class MouseController implements MouseMotionListener, MouseListener{
 
 
-	private AbstractPiece p = null;
+	private Piece p = null;
 	
 	public Point currentPoint(MouseEvent e){
 		Point p = e.getLocationOnScreen();
@@ -19,7 +19,7 @@ public class MouseController implements MouseMotionListener, MouseListener{
 		return p;
 	}
 	
-	public boolean isOnPiece(Point b, AbstractPiece piece) {
+	public boolean isOnPiece(Point b, Piece piece) {
 		int mouse_x = (int) b.getX();
 		int mouse_y = (int) b.getY();
 		int iX = piece.getImageX();
@@ -35,16 +35,18 @@ public class MouseController implements MouseMotionListener, MouseListener{
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-
+		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 
-		for (AbstractPiece piece: StaticObjects.pieces) {
+		for (Piece piece: StaticObjects.pieces) {
 			if (isOnPiece(currentPoint(e),piece)) {
 				p = piece;
 				StaticObjects.flag=true;
+				StaticObjects.piece_index = StaticObjects.pieces.indexOf(piece);
+				StaticObjects.panel.repaint();
 			}
 		}
 	}
@@ -56,6 +58,8 @@ public class MouseController implements MouseMotionListener, MouseListener{
 			StaticObjects.panel.repaint();
 		}
 		p = null;
+		StaticObjects.piece_index=10;
+		StaticObjects.position_switch = 1;
 	}
 
 	@Override
