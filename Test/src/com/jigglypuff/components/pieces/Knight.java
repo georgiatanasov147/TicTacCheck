@@ -14,7 +14,7 @@ public class Knight extends Piece{
 
 	
 	private int[][] pos = new int[8][2]; 
-
+	private boolean lock = true;
 	
 	public Knight(String imageFile,Color color) {
 		super(imageFile,color,StaticObjects.begin+StaticObjects.SL);
@@ -54,14 +54,41 @@ public class Knight extends Piece{
 			initPos();
 		}
 		for (int i = 0; i < pos.length; i++) {
+			lock=true;
 			if(!(pos[i][0]<StaticObjects.begin ||
 				pos[i][1]<StaticObjects.begin ||
 				pos[i][0]>StaticObjects.begin*3||
 				pos[i][1]>StaticObjects.begin*3))
 			{
-				g.drawImage(cross,pos[i][0],pos[i][1],StaticObjects.panel);
+				for (Piece piece : StaticObjects.pieces) {
+					if(piece.getOldX()==pos[i][0] && piece.getOldY()==pos[i][1]){
+						if(!(piece.getColor().equals(this.getColor()))){
+							g.drawImage(cross,pos[i][0],pos[i][1],StaticObjects.panel);
+							break;
+						}else{
+							lock = false;
+						}
+					}
+				}
+				if(lock){
+					g.drawImage(cross,pos[i][0],pos[i][1],StaticObjects.panel);
+				}
 			}
 		}
 	}
+	
+	@Override
+	public boolean moveIsValid(int mouseX, int mouseY) {
+		for (int i = 0; i < pos.length; i++) {
+			if(mouseX == pos[i][0] && mouseY == pos[i][1]){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	
+	
 	
 }

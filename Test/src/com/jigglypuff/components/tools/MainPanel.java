@@ -15,8 +15,7 @@ import com.jigglypuff.globals.StaticObjects;
 public class MainPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	public MainPanel() {
 		RepaintManager.currentManager(null).setDoubleBufferingEnabled(true);
 		setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -25,28 +24,28 @@ public class MainPanel extends JPanel {
 	public Dimension getPreferredSize() {
 		return new Dimension(StaticObjects.WindowSize, StaticObjects.WindowSize);
 	}
-	
+
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		//background
+		// background
 		g.setColor(Color.GRAY);
 		g.fillRect(0, 0, StaticObjects.WindowSize, StaticObjects.WindowSize);
-		
-		
-		//board
+
+		// board
 
 		StaticObjects.board.drawBoard(g);
-		
-		if(StaticObjects.piece_index<=7){
-			StaticObjects.pieces.get(StaticObjects.piece_index).paintPositions(g);
-			StaticObjects.position_switch++;
+
+		if (StaticObjects.piece_index <= 7) {
+			if (StaticObjects.pieces.get(StaticObjects.piece_index).isOnBoard()) {
+				StaticObjects.pieces.get(StaticObjects.piece_index).paintPositions(g);
+				StaticObjects.position_switch++;
+			}
 		}
-			
-		
-		//pieces
-		for (Piece piece: StaticObjects.pieces) {
-			g.drawImage(piece.getImage(), piece.getImageX(), piece.getImageY(), this);			
+
+		// pieces
+		for (Piece piece : StaticObjects.pieces) {
+			g.drawImage(piece.getImage(), piece.getImageX(), piece.getImageY(), this);
 		}
 	}
 }

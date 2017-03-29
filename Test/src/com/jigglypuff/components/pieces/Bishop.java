@@ -73,5 +73,18 @@ public class Bishop extends Piece{
 		pos[11][1] = getImageY()+StaticObjects.SL*3;
 		
 	}
+
+	@Override
+	public boolean moveIsValid(int mouseX, int mouseY) {
+		for (int i = 0; i < pos.length; i++) {
+			if(mouseX == pos[i][0] && mouseY == pos[i][1]){
+				return true;
+			}
+		}
+		return false;
+	}
+
+
+	
 	
 }

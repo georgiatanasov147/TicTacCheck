@@ -46,10 +46,6 @@ public class Board {
 			x2 += StaticObjects.SL;
 		}
 		
-		for (int i = 0; i<16; i++)
-		{
-			System.out.format("board[%d]: x1= %d, y1=%d, x2=%d, y2=%d\n", i, board[i][0], board[i][1], board[i][2], board[i][3]);
-		}
 		
 	}
 
