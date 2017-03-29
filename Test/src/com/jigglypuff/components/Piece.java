@@ -53,28 +53,25 @@ public abstract class Piece {
 		imageY = initY;
 	}
 	
-	public void fixPosition(int x, int y) {
-		int xmin = 600, ymin = 600;
+	public void fixPosition(int mouseX, int mouseY) {
+		//int xmin = 600, ymin = 600;
 		int newX = 0, newY = 0;
-		int res;
+		//int res;
+		
 		for (int i = 0; i < StaticObjects.board.getBoard().length; i++) {
-			res = x - StaticObjects.board.getBoard()[i][0];
-			if (res < 0) {
-				res = -res;
-			}
-			if (res < xmin) {
-				xmin = res;
+			if((mouseX >= StaticObjects.board.getBoard()[i][0])
+					&& mouseX <= StaticObjects.board.getBoard()[i][2]
+					&& mouseY >= StaticObjects.board.getBoard()[i][1]
+					&& mouseY <= StaticObjects.board.getBoard()[i][3]) {
 				newX = StaticObjects.board.getBoard()[i][0];
-			}
-			res = y - StaticObjects.board.getBoard()[i][1];
-			if (res < 0) {
-				res = -res;
-			}
-			if (res < ymin) {
-				ymin = res;
 				newY = StaticObjects.board.getBoard()[i][1];
+				System.out.format("mouseX = %d, mouseY = %d\n", mouseX, mouseY);
+				break;
 			}
 		}
+		
+		System.out.format("newX = %d, newY = %d\n", newX, newY);
+		
 		boolean permission = checkForOtherPieces(newX, newY);
 		if(permission){
 			imageX = newX;

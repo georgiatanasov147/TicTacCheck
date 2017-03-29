@@ -16,25 +16,41 @@ public class Board {
 	public Board() {
 		img = Toolkit.getDefaultToolkit().getImage(Board.class.getResource("board.jpg"));
 		img = img.getScaledInstance(240, 240, Image.SCALE_AREA_AVERAGING);
-		board = new int[16][2];
+		board = new int[16][4];
 		initialiseBoard();
 	}
 	
 	public void drawBoard(Graphics g){
 		g.drawImage(img, StaticObjects.begin, StaticObjects.begin, StaticObjects.panel);
 	}
+	
+	
 	public void initialiseBoard() {
-		int x = StaticObjects.begin;
-		int y = StaticObjects.begin;
+		int x1 = StaticObjects.begin;
+		int y1 = StaticObjects.begin;
+		int x2 = StaticObjects.begin + StaticObjects.SL;
+		int y2 = StaticObjects.begin + StaticObjects.SL;
+		
 		for (int i = 0; i < 16; i++) {
 			if (i == 4 || i == 8 || i == 12) {
-				x = StaticObjects.begin;
-				y += StaticObjects.SL;
+				x1 = StaticObjects.begin;
+				y1 += StaticObjects.SL;
+				x2 = StaticObjects.begin + StaticObjects.SL;
+				y2 += StaticObjects.SL;
 			}
-			board[i][0] = x;
-			board[i][1] = y;
-			x += StaticObjects.SL;
+			board[i][0] = x1;
+			board[i][1] = y1;
+			board[i][2] = x2;
+			board[i][3] = y2;
+			x1 += StaticObjects.SL;
+			x2 += StaticObjects.SL;
 		}
+		
+		for (int i = 0; i<16; i++)
+		{
+			System.out.format("board[%d]: x1= %d, y1=%d, x2=%d, y2=%d\n", i, board[i][0], board[i][1], board[i][2], board[i][3]);
+		}
+		
 	}
 
 	public void paintBoard(Graphics g) {
