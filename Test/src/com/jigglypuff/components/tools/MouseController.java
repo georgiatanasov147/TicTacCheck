@@ -54,7 +54,7 @@ public class MouseController implements MouseMotionListener, MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (p != null) {
-			p.fixPosition((int)currentPoint(e).getX()/*-StaticObjects.SL/2*/,(int)currentPoint(e).getY()/*-StaticObjects.SL/2*/);
+			p.fixPosition((int)currentPoint(e).getX(),(int)currentPoint(e).getY());
 			StaticObjects.panel.repaint();
 		}
 		p = null;
@@ -86,7 +86,6 @@ public class MouseController implements MouseMotionListener, MouseListener{
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-		System.out.format("current mouse x: %d, y: %d\n", e.getX(), e.getY());
 	}
 
 }

@@ -72,5 +72,18 @@ public class Rook extends Piece{
 		
 	}
 
+	@Override
+	public boolean moveIsValid(int mouseX, int mouseY) {
+		for (int i = 0; i < pos.length; i++) {
+			if(mouseX == pos[i][0] && mouseY == pos[i][1]){
+				return true;
+			}
+		}
+		return false;
+	}
+
+
+	
+
 	
 }

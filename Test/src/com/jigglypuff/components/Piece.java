@@ -27,8 +27,19 @@ public abstract class Piece {
 		setInitialXY(x);
 		addToList();
 	}
+	
+	
+	public abstract boolean moveIsValid(int mouseX, int mouseY);
 	public abstract void paintPositions(Graphics g);
 	public abstract void initPos();
+	
+
+	public boolean isOnBoard(){
+		if(getOldX() == getInitX() && getOldY() == getInitY()){
+			return false;
+		}
+		return true;
+	}
 
 	private void setInitialXY(int x){
 		setImageX(x);
@@ -51,26 +62,32 @@ public abstract class Piece {
 	public void restart() {
 		imageX = initX;
 		imageY = initY;
+		oldX = initX;
+		oldY = initY;
 	}
 	
 	public void fixPosition(int mouseX, int mouseY) {
-		//int xmin = 600, ymin = 600;
-		int newX = 0, newY = 0;
-		//int res;
+		int newX = getOldX(), newY = getOldY();
 		
 		for (int i = 0; i < StaticObjects.board.getBoard().length; i++) {
 			if((mouseX >= StaticObjects.board.getBoard()[i][0])
-					&& mouseX <= StaticObjects.board.getBoard()[i][2]
-					&& mouseY >= StaticObjects.board.getBoard()[i][1]
-					&& mouseY <= StaticObjects.board.getBoard()[i][3]) {
+			 && mouseX <= StaticObjects.board.getBoard()[i][2]
+			 && mouseY >= StaticObjects.board.getBoard()[i][1]
+			 && mouseY <= StaticObjects.board.getBoard()[i][3]) 
+			{
 				newX = StaticObjects.board.getBoard()[i][0];
 				newY = StaticObjects.board.getBoard()[i][1];
-				System.out.format("mouseX = %d, mouseY = %d\n", mouseX, mouseY);
 				break;
+			}
+			
+		}
+		if(isOnBoard()){
+			if(!moveIsValid(newX,newY)){
+				goBack();
+				return;
 			}
 		}
 		
-		System.out.format("newX = %d, newY = %d\n", newX, newY);
 		
 		boolean permission = checkForOtherPieces(newX, newY);
 		if(permission){
@@ -96,9 +113,13 @@ public abstract class Piece {
 	public boolean checkForOtherPieces(int newX,int newY){
 		for (Piece piece:StaticObjects.pieces) {
 			if(piece.getImageX()==newX && piece.getImageY()==newY){
-				if(piece.getColor() != getColor()){
-					piece.restart();
-					return true;
+				if(isOnBoard()){
+					if(piece.getColor() != getColor()){
+						piece.restart();
+						return true;
+					}else{
+						return false;
+					}
 				}else{
 					return false;
 				}
