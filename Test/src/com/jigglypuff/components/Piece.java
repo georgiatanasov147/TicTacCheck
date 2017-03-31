@@ -44,9 +44,9 @@ public abstract class Piece {
 	private void setInitialXY(int x){
 		setImageX(x);
 		if(getColor() == Color.WHITE){
-			setImageY(StaticObjects.begin+ 4*StaticObjects.SL);
+			setImageY((StaticObjects.begin+ 4*StaticObjects.SL)+20);
 		}else{
-			setImageY(StaticObjects.begin - StaticObjects.SL);
+			setImageY((StaticObjects.begin - StaticObjects.SL)-20);
 		}
 		setInitX(getImageX());
 		setInitY(getImageY());
