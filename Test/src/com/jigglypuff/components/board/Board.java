@@ -14,14 +14,14 @@ public class Board {
 	private Image img;
 	
 	public Board() {
-		img = Toolkit.getDefaultToolkit().getImage(Board.class.getResource("board.jpg"));
-		img = img.getScaledInstance(240, 240, Image.SCALE_AREA_AVERAGING);
+		img = Toolkit.getDefaultToolkit().getImage(Board.class.getResource("board3.png"));
+		img = img.getScaledInstance(280, 400, Image.SCALE_AREA_AVERAGING);
 		board = new int[16][4];
 		initialiseBoard();
 	}
 	
 	public void drawBoard(Graphics g){
-		g.drawImage(img, StaticObjects.begin, StaticObjects.begin, StaticObjects.panel);
+		g.drawImage(img, StaticObjects.begin-20, StaticObjects.begin-80, StaticObjects.panel);
 	}
 	
 	
