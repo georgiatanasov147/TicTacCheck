@@ -21,7 +21,7 @@ public abstract class Piece {
 	public Piece(String imageFile,Color color,int x) {
 		image = Toolkit.getDefaultToolkit().getImage(TicTacCheckApplication.class.getResource(imageFile));
 		image = image.getScaledInstance(imageWidth, imageHeight, Image.SCALE_AREA_AVERAGING);
-		cross = Toolkit.getDefaultToolkit().getImage(Piece.class.getResource("pieces/cross.png"));
+		cross = Toolkit.getDefaultToolkit().getImage(Piece.class.getResource("../application/images/cross.png"));
 		cross = cross.getScaledInstance(imageWidth, imageHeight, Image.SCALE_AREA_AVERAGING);
 		setColor(color);
 		setInitialXY(x);
@@ -29,7 +29,7 @@ public abstract class Piece {
 	}
 	
 	
-	public abstract boolean moveIsValid(int mouseX, int mouseY);
+	public abstract boolean moveIsValid(int newX, int newY);
 	public abstract void paintPositions(Graphics g);
 	public abstract void initPos();
 	

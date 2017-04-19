@@ -20,13 +20,15 @@ public class MouseController implements MouseMotionListener, MouseListener{
 	}
 	
 	public boolean isOnPiece(Point b, Piece piece) {
-		int mouse_x = (int) b.getX();
-		int mouse_y = (int) b.getY();
-		int iX = piece.getImageX();
-		int iY = piece.getImageY();
+		int mousePointerX = (int) b.getX();
+		int mousePointerY = (int) b.getY();
+		int imageX = piece.getImageX();
+		int imageY = piece.getImageY();
 		
-		if (mouse_x > iX && mouse_y > iY && mouse_x < (iX + StaticObjects.X)
-				&& mouse_y < (iY + StaticObjects.Y)) {
+		if (mousePointerX > imageX 
+				&& mousePointerY > imageY 
+				&& mousePointerX < (imageX + StaticObjects.X)
+				&& mousePointerY < (imageY + StaticObjects.Y) ) {
 			return true;
 		} else {
 			return false;
@@ -51,6 +53,13 @@ public class MouseController implements MouseMotionListener, MouseListener{
 		}
 	}
 
+	/*
+	 * When mouse is released, i.e. when we've finished moving our piece,
+	 * we snap the piece's position to the board grid by calling fixPosition(),
+	 * repaint, set piece_index to the arbitrary value 10 and set 
+	 * position_switch to 1, meaning 'I've stopped moving pieces now.'
+	 */
+	
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (p != null) {
@@ -74,6 +83,11 @@ public class MouseController implements MouseMotionListener, MouseListener{
 		
 	}
 
+	/*
+	 * When the mouse is dragged, centre the piece's image to the mouse pointer,
+	 * hence SquareLength - SL divided by 2.
+	 */
+	
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		if(p!=null){

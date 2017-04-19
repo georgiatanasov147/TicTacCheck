@@ -24,7 +24,9 @@ public class TicTacCheckApplication {
 		Pawn black_pawn = new Pawn("images/b_pawn.png",Color.BLACK);
 		Rook black_rook = new Rook("images/b_rook.png",Color.BLACK);
 		
-		mf = new MainFrame("TicTacCheck");
+		/* ...Oh they are used... */
+		
+		mf = new MainFrame("TicTacCheck v0.9.5.1.8"); /* What the window name will be */
 	}//main
 	
 
