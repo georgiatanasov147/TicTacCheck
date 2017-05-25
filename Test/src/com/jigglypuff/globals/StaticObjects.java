@@ -22,4 +22,6 @@ public class StaticObjects {
 	public static boolean flag = false;
 	public static int piece_index = 10;
 	public static int position_switch = 1;
+	
+	
 }

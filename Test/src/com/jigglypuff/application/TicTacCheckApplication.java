@@ -6,12 +6,13 @@ import com.jigglypuff.components.pieces.Knight;
 import com.jigglypuff.components.pieces.Pawn;
 import com.jigglypuff.components.pieces.Rook;
 import com.jigglypuff.components.tools.MainFrame;
+import com.jigglypuff.components.tools.MenuFrame;
 import com.jigglypuff.components.*;
 
 public class TicTacCheckApplication {
 
 	public static MainFrame mf;
-	
+	public static MenuFrame menuFrame;
 	public static void main(String[] args) {
  
 		Bishop white_bishop = new Bishop("images/w_bishop.png",Color.WHITE);
@@ -24,7 +25,8 @@ public class TicTacCheckApplication {
 		Pawn black_pawn = new Pawn("images/b_pawn.png",Color.BLACK);
 		Rook black_rook = new Rook("images/b_rook.png",Color.BLACK);
 		
-		mf = new MainFrame("TicTacCheck");
+//		mf = new MainFrame("TicTacCheck");
+		menuFrame = new MenuFrame("Menu");
 	}//main
 	
 

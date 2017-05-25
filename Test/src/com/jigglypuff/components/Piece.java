@@ -60,6 +60,7 @@ public abstract class Piece {
 	}
 	
 	public void restart() {
+		StaticObjects.board.leaveSquare(imageX, imageY);
 		imageX = initX;
 		imageY = initY;
 		oldX = initX;
@@ -93,8 +94,10 @@ public abstract class Piece {
 		if(permission){
 			imageX = newX;
 			imageY = newY;
+			StaticObjects.board.leaveSquare(oldX, oldY);
 			oldX = newX;
 			oldY = newY;
+			StaticObjects.board.takeSquare(imageX, imageY,getColor());
 		}else{
 			goBack();
 		}

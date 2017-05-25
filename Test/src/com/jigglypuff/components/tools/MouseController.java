@@ -60,6 +60,7 @@ public class MouseController implements MouseMotionListener, MouseListener{
 		p = null;
 		StaticObjects.piece_index=10;
 		StaticObjects.position_switch = 1;
+		StaticObjects.board.paintMap();
 	}
 
 	@Override
