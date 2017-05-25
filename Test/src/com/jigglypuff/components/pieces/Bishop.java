@@ -15,15 +15,15 @@ public class Bishop extends Piece{
 
 	private int[][] pos = new int[12][2];
 	/*
-	 * Array of valid positions for the green X, i.e. possible moves; 
+	 * Array of valid positions for the green 'X', i.e. possible moves; 
 	 * APPLIES FOR THE BISHOP ONLY NOW
 	 */
 
 	
 	public Bishop(String imageFile,Color color) {
 		/* 
-		 * Call Piece constructor with the image file name, the current piece colour (given in main)
-		 * and the beginning coordinate - 100
+		 * Call Piece constructor with the image file name, the current piece colour (given in main() )
+		 * and the starting coordinate - 100
 		 */
 		super(imageFile,color,StaticObjects.begin);
 		setType(Type.BISHOP);
@@ -41,7 +41,7 @@ public class Bishop extends Piece{
 			 * for that piece from its current position;
 			 * If we're dragging any of the pieces, then don't calculate the possible moves,
 			 * don't fill the pos[] array with the new possible moves from the current position
-			 * of the given piece, i.e. don't call initPos()
+			 * of the given piece, i.e. don't call initPos().
 			 */
 			initPos();
 		}
@@ -49,12 +49,12 @@ public class Bishop extends Piece{
 		for (int i = 0; i < pos.length; i++) {
 			/* 
 			 * If the coordinates saved in the i-th member of pos[] don't correspond to
-			 * a position outside the board, then draw the green X (marking possible moves)
+			 * a position outside the board, then draw the green X (marking possible moves).
 			 */
-			if(!(pos[i][0]<StaticObjects.begin
-					|| pos[i][1]<StaticObjects.begin
-					|| pos[i][0]>StaticObjects.begin*3
-					|| pos[i][1]>StaticObjects.begin*3) )
+			if(!(pos[i][0]<StaticObjects.begin ||
+					 pos[i][1]<StaticObjects.begin ||
+					 pos[i][0]>StaticObjects.begin*3 ||
+					 pos[i][1]>StaticObjects.begin*3) )
 			{
 				g.drawImage(cross,pos[i][0],pos[i][1],StaticObjects.panel);
 			}
@@ -69,9 +69,9 @@ public class Bishop extends Piece{
 	@Override
 	public void initPos() {
 		
-		/* Possible green X positions (hence possible moves) for the Bishop are: */
+		/* Possible green 'X' positions (hence possible moves) for the Bishop are: */
 		
-		/* - diagonal to upper left */
+		/* diagonal to upper left; */
 		
 		pos[0][0] = getImageX()-StaticObjects.SL;
 		pos[0][1] = getImageY()-StaticObjects.SL;
@@ -82,7 +82,7 @@ public class Bishop extends Piece{
 		pos[2][0] = getImageX()-StaticObjects.SL*3;
 		pos[2][1] = getImageY()-StaticObjects.SL*3;
 		
-		/* - diagonal to lower right */
+		/* diagonal to lower right; */
 		
 		pos[3][0] = getImageX()+StaticObjects.SL;
 		pos[3][1] = getImageY()+StaticObjects.SL;
@@ -93,7 +93,7 @@ public class Bishop extends Piece{
 		pos[5][0] = getImageX()+StaticObjects.SL*3;
 		pos[5][1] = getImageY()+StaticObjects.SL*3;
 		
-		/* - diagonal to upper right */
+		/* diagonal to upper right; */
 		
 		pos[6][0] = getImageX()+StaticObjects.SL;
 		pos[6][1] = getImageY()-StaticObjects.SL;
@@ -104,7 +104,7 @@ public class Bishop extends Piece{
 		pos[8][0] = getImageX()+StaticObjects.SL*3;
 		pos[8][1] = getImageY()-StaticObjects.SL*3;
 		
-		/* - diagonal to lower left */
+		/* diagonal to lower left; */
 		
 		pos[9][0] = getImageX()-StaticObjects.SL;
 		pos[9][1] = getImageY()+StaticObjects.SL;

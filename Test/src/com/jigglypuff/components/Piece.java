@@ -34,11 +34,12 @@ public abstract class Piece {
 	public abstract void initPos();
 	
 
-	public boolean isOnBoard(){
-		if(getOldX() == getInitX() && getOldY() == getInitY()){
+	public boolean isOnBoard()
+	{
+		if(getOldX() == getInitX() && getOldY() == getInitY())
 			return false;
-		}
-		return true;
+		else
+			return true;
 	}
 
 	private void setInitialXY(int x){
@@ -130,74 +131,134 @@ public abstract class Piece {
 	
 	//getters and setters ->
 	
-	public Type getType() {
+	public Type getType()
+	{
 		return type;
 	}
 
-	public void setType(Type type) {
+	
+	public void setType(Type type)
+	{
 		this.type = type;
 	}
 
-	public Color getColor() {
+	
+	public Color getColor()
+	{
 		return color;
 	}
 
-	public void setColor(Color color) {
+	
+	public void setColor(Color color)
+	{
 		this.color = color;
 	}
+	
 
-	public Image getImage() {
+	public Image getImage()
+	{
 		return image;
 	}
-	public void setImage(Image image) {
+	
+	
+	public void setImage(Image image)
+	{
 		this.image = image;
 	}
-	public int getImageWidth() {
+	
+	
+	public int getImageWidth()
+	{
 		return imageWidth;
 	}
-	public void setImageWidth(int imageWidth) {
+	
+	
+	public void setImageWidth(int imageWidth)
+	{
 		this.imageWidth = imageWidth;
 	}
-	public int getImageHeight() {
+	
+	
+	public int getImageHeight()
+	{
 		return imageHeight;
 	}
-	public void setImageHeight(int imageHeight) {
+	
+	
+	public void setImageHeight(int imageHeight)
+	{
 		this.imageHeight = imageHeight;
 	}
-	public int getImageX() {
+	
+	
+	public int getImageX()
+	{
 		return imageX;
 	}
-	public void setImageX(int imageX) {
+	
+	
+	public void setImageX(int imageX)
+	{
 		this.imageX = imageX;
 	}
-	public int getImageY() {
+	
+	
+	public int getImageY()
+	{
 		return imageY;
 	}
-	public void setImageY(int imageY) {
+	
+	
+	public void setImageY(int imageY)
+	{
 		this.imageY = imageY;
 	}
-	public int getInitX() {
+	
+	
+	public int getInitX()
+	{
 		return initX;
 	}
-	public void setInitX(int initX) {
+	
+	
+	public void setInitX(int initX)
+	{
 		this.initX = initX;
 	}
-	public int getInitY() {
+	
+	
+	public int getInitY()
+	{
 		return initY;
 	}
-	public void setInitY(int initY) {
+	
+	
+	public void setInitY(int initY)
+	{
 		this.initY = initY;
 	}
-	public int getOldX() {
+	
+	
+	public int getOldX()
+	{
 		return oldX;
 	}
-	public void setOldX(int oldX) {
+	
+	
+	public void setOldX(int oldX)
+	{
 		this.oldX = oldX;
 	}
-	public int getOldY() {
+	
+	
+	public int getOldY()
+	{
 		return oldY;
 	}
-	public void setOldY(int oldY) {
+	
+	
+	public void setOldY(int oldY)
+	{
 		this.oldY = oldY;
 	}
 
