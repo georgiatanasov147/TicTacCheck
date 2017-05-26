@@ -34,9 +34,7 @@ public class StatsFrame extends JFrame{
 		JScrollPane scroll = new JScrollPane(table);
 		table.setFillsViewportHeight(true);
 		setSize(StaticObjects.WindowSize+150,StaticObjects.WindowSize);
-		
 		panel.setLayout(new FlowLayout());
-		panel.add(table);
 		panel.add(scroll);
 
 		setLocationRelativeTo(null);
@@ -48,8 +46,9 @@ public class StatsFrame extends JFrame{
 	private JTable getData(String user, String pass){
 		JTable table = new JTable(0,7);
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
-		Object[] row = {"Name","Games","Wins","Losses","Draws","WinRate","Rating"};
-		model.addRow(row);
+		
+		Object[] header = {"Name","Games","Wins","Losses","Draws","WinRate","Rating"};
+		model.setColumnIdentifiers(header);
 		
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
