@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import com.jigglypuff.components.board.Board;
 import com.jigglypuff.globals.StaticObjects;
 
 public class RegFrame extends JFrame{
@@ -117,7 +118,7 @@ public class RegFrame extends JFrame{
 					&& dbc.selectExistingPlayer(textOldBlackPlayer.getText())) {
 				System.out.println("OUT OF CYCLE");
 				StaticObjects.panel = new MainPanel(textOldWhitePlayer.getText(),textOldBlackPlayer.getText());
-				new MainFrame("TicTacCheck");
+				StaticObjects.mf=new MainFrame("TicTacCheck");
 			} else {
 				JOptionPane.showMessageDialog(null, "Player names don't exist. Please register!");
 			}
@@ -136,7 +137,7 @@ public class RegFrame extends JFrame{
 				dbc.insertNewPlayer(textNewWhitePlayer.getText());
 				dbc.insertNewPlayer(textNewBlackPlayer.getText());
 				StaticObjects.panel= new MainPanel(textNewWhitePlayer.getText(),textNewBlackPlayer.getText());
-				new MainFrame("TicTacCheck");
+				StaticObjects.mf = new MainFrame("TicTacCheck");
 			}else{
 				JOptionPane.showMessageDialog(null, "Player names already exist! ");
 			}

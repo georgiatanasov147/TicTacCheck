@@ -17,6 +17,7 @@ public abstract class Piece {
 	protected Type type;
 	protected Color color;
 	protected Image cross;
+	protected boolean change = false;
 	
 	public Piece(String imageFile,Color color,int x) {
 		image = Toolkit.getDefaultToolkit().getImage(TicTacCheckApplication.class.getResource(imageFile));
@@ -57,6 +58,7 @@ public abstract class Piece {
 	public void goBack() {
 		imageX = oldX;
 		imageY = oldY;
+		changePosition(false);
 	}
 	
 	public void restart() {
@@ -65,6 +67,14 @@ public abstract class Piece {
 		imageY = initY;
 		oldX = initX;
 		oldY = initY;
+	}
+	
+	public void changePosition(boolean change){
+		this.change=change;
+	}
+	
+	public boolean isChanged(){
+		return change;
 	}
 	
 	public void fixPosition(int mouseX, int mouseY) {
@@ -88,6 +98,10 @@ public abstract class Piece {
 				return;
 			}
 		}
+		if(newX == initX && newY == initY){
+			goBack();
+			return;
+		}
 		
 		
 		boolean permission = checkForOtherPieces(newX, newY);
@@ -98,6 +112,8 @@ public abstract class Piece {
 			oldX = newX;
 			oldY = newY;
 			StaticObjects.board.takeSquare(imageX, imageY,getColor());
+			System.out.println("change");
+			changePosition(true);
 		}else{
 			goBack();
 		}

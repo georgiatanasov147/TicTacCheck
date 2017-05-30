@@ -20,13 +20,13 @@ public class Board {
 		img = Toolkit.getDefaultToolkit().getImage(Board.class.getResource("board3.png"));
 		img = img.getScaledInstance(280, 400, Image.SCALE_AREA_AVERAGING);
 		board = new int[16][4];
-//		map = new Map<Integer, Integer, Boolean>();
 		map2 = new int[16][3];
+//		map2 = new int[4][4];
 		initialiseBoard();
 		initMap();
 	}
 
-	private void initMap() {
+	public void initMap() {
 		for (int i = 0; i < board.length; i++) {
 			map2[i][0] = board[i][0];
 			map2[i][1] = board[i][1];
@@ -42,6 +42,44 @@ public class Board {
 			}
 		}
 		System.out.println("\n\n");
+	}
+	
+	
+	public int checkEndGame(){
+		for (int i = 0; i < map2.length ; i +=4) {
+//			if(map2[i][0] == map2[i][1] && map2[i][2] == map2[i][3] && map2[i][1] == map2[i][2]){
+//				return true;
+//			}
+			if(map2[i][2] == map2[i+1][2] && map2[i+2][2] == map2[i+3][2] && map2[i+1][2] == map2[i+2][2]){
+				if (map2[i][2] == 1 || map2[i][2] == 2) {
+					return map2[i][2];
+				}
+			}
+
+		}
+		
+		for (int i = 0; i < 4; i++) {
+			
+			if(map2[i][2] == map2[i+4][2] && map2[i+8][2] == map2[i+12][2] && map2[i+4][2] == map2[i+8][2]){
+				if (map2[i][2] == 1 || map2[i][2] == 2) {
+					return map2[i][2];
+				}
+			}
+		}
+		
+		if(map2[0][2] == map2[5][2] && map2[10][2] == map2[15][2] && map2[5][2] == map2[10][2]){
+			if (map2[0][2] == 1 || map2[0][2] == 2) {
+				return map2[0][2];
+			}
+		}
+		
+		if(map2[3][2] == map2[6][2] && map2[9][2] == map2[12][2] && map2[6][2] == map2[9][2]){
+			if (map2[3][2] == 1 || map2[3][2] == 2) {
+				return map2[3][2];
+			}
+		}
+		
+		return 0;
 	}
 
 	public void takeSquare(int x, int y, Color c) {

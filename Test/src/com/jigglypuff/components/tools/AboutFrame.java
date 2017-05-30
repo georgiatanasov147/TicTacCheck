@@ -21,15 +21,16 @@ public class AboutFrame extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Image image;
-	private JPanel panel;
+//	private Image image;
+	//private JPanel panel;
+	
 	public AboutFrame() {
 		super("About");
-		RepaintManager.currentManager(null).setDoubleBufferingEnabled(true);
-		image = Toolkit.getDefaultToolkit().getImage(TicTacCheckApplication.class.getResource("pic.png"));
-		image = image.getScaledInstance(40, 40, Image.SCALE_AREA_AVERAGING);
+//		RepaintManager.currentManager(null).setDoubleBufferingEnabled(true);
+//		image = Toolkit.getDefaultToolkit().getImage(TicTacCheckApplication.class.getResource("pic.png"));
+//		image = image.getScaledInstance(40, 40, Image.SCALE_AREA_AVERAGING);
 		JPanel panel = new JPanel();
-		this.panel=panel;
+//		this.panel=panel;
 		JLabel text = new JLabel("<html>&#9;Game rules:<br><br> The game is based on the classical chess and <br> the simple TicTacToe game.<br> It is played by 2 players, one against the other.<br> Each starts with 4 chess figures, which move<br> according to classic chess rules.<br> The goal is to make a line with all four pieces - <br>diagonally, horisontally or vertically.<br> The first player who does that, wins the game.<br><br><br><br><br><br><br><br><br><br><br><br><br>© 2017 v1.0 &#9;&#9;&emsp;&emsp;  Team TicTac</html> ",SwingConstants.CENTER);
 			
 		setSize(StaticObjects.WindowSize-150,StaticObjects.WindowSize);
@@ -42,10 +43,10 @@ public class AboutFrame extends JFrame{
 		
 	}
 	
-	@Override
-	public void paint(Graphics g) {
-		super.paint(g);
-		
-		g.drawImage(image, 40, 40, panel);
-	}
+//	@Override
+//	public void paint(Graphics g) {
+//		super.paint(g);
+//		
+//		g.drawImage(image, 40, 40, panel);
+//	}
 }

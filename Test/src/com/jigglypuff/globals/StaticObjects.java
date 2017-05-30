@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import com.jigglypuff.components.Piece;
 import com.jigglypuff.components.board.Board;
+import com.jigglypuff.components.tools.MainFrame;
 import com.jigglypuff.components.tools.MainPanel;
 
 public class StaticObjects {
 	
+	public static MainFrame mf;
 	public static MainPanel panel;
 	public static Board board = new Board();
 	public static Scanner input = new Scanner(System.in);

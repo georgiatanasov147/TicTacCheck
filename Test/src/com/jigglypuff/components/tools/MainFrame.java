@@ -3,6 +3,7 @@ package com.jigglypuff.components.tools;
 
 import javax.swing.JFrame;
 
+import com.jigglypuff.components.Piece;
 import com.jigglypuff.globals.StaticObjects;
 
 public class MainFrame extends JFrame{
@@ -16,11 +17,15 @@ public class MainFrame extends JFrame{
 		setSize(StaticObjects.WindowSize,StaticObjects.WindowSize);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		for (Piece piece : StaticObjects.pieces) {
+			piece.restart();
+		}
 		add(StaticObjects.panel);
 		m = new MouseController();
 		addMouseMotionListener(m);
 		addMouseListener(m);
-		
+		StaticObjects.board.initialiseBoard();
+		StaticObjects.board.initMap();
 		pack();
 		setVisible(true);
 	}
