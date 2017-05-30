@@ -47,7 +47,7 @@ public class MenuFrame extends JFrame {
 		setLocationRelativeTo(null);
 		add(panel);
 		start.setBounds(225,225,150,40);
-		start.addActionListener(new StartAction());
+		start.addActionListener(new RegistrationAction());
 		panel.add(start);
 		
 		quit.setBounds(225,295,150,40);
@@ -109,11 +109,11 @@ public class MenuFrame extends JFrame {
 		
 	}
 	
-	class StartAction implements ActionListener{
+	class RegistrationAction implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			TicTacCheckApplication.mf = new MainFrame("TicTacCheck");
+			new RegFrame();
 		}
 		
 	}

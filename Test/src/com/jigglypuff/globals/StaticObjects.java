@@ -9,7 +9,7 @@ import com.jigglypuff.components.tools.MainPanel;
 
 public class StaticObjects {
 	
-	public static MainPanel panel = new MainPanel();
+	public static MainPanel panel;
 	public static Board board = new Board();
 	public static Scanner input = new Scanner(System.in);
 	public static final int X = 60, Y = 60;

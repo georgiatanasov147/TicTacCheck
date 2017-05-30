@@ -16,12 +16,11 @@ public class MainFrame extends JFrame{
 		setSize(StaticObjects.WindowSize,StaticObjects.WindowSize);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
+		add(StaticObjects.panel);
 		m = new MouseController();
 		addMouseMotionListener(m);
 		addMouseListener(m);
 		
-		add(StaticObjects.panel);
 		pack();
 		setVisible(true);
 	}

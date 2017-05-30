@@ -11,7 +11,6 @@ import com.jigglypuff.components.*;
 
 public class TicTacCheckApplication {
 
-	public static MainFrame mf;
 	public static MenuFrame menuFrame;
 	public static void main(String[] args) {
  
@@ -25,7 +24,6 @@ public class TicTacCheckApplication {
 		Pawn black_pawn = new Pawn("images/b_pawn.png",Color.BLACK);
 		Rook black_rook = new Rook("images/b_rook.png",Color.BLACK);
 		
-//		mf = new MainFrame("TicTacCheck");
 		menuFrame = new MenuFrame("Menu");
 	}//main
 	

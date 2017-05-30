@@ -18,7 +18,8 @@ public class DonateFrame extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	private JTextField pn, rn, am, ib;
+	
 	public DonateFrame() {
 		super("Donate");
 		JPanel panel = new JPanel();
@@ -28,14 +29,15 @@ public class DonateFrame extends JFrame{
 		JLabel playerName = new JLabel("Enter player name: ");
 		JLabel realName = new JLabel("Enter your real name: ");
 		JLabel amount = new JLabel("Enter donation amount: ");
-		JLabel iban = new JLabel("Enter your IBAN");
+		JLabel iban = new JLabel("Enter your IBAN: ");
 		
-		JTextField pn = new JTextField("");
-		JTextField rn = new JTextField("");
-		JTextField am = new JTextField("");
-		JTextField ib = new JTextField("");
+		pn = new JTextField("");
+		rn = new JTextField("");
+		am = new JTextField("");
+		ib = new JTextField("");
 
 		send.addActionListener(new MessageAction());
+		send.addActionListener(new DonateAction());
 		
 		panel.setLayout(null);
 		
@@ -92,6 +94,21 @@ public class DonateFrame extends JFrame{
 		add(panel);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+	}
+	
+	class DonateAction implements ActionListener{
+
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			DatabaseController dbc = new DatabaseController("root","newpass");
+			String playerName = pn.getText();
+			String name = rn.getText();
+			String amount = am.getText();
+			String IBAN = ib.getText();
+			dbc.insertNewDonation(playerName, name, Integer.parseInt(amount), IBAN);
+		}
+		
 	}
 	
 	class MessageAction implements ActionListener{
