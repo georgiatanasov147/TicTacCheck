@@ -38,6 +38,9 @@ public class RegFrame extends JFrame{
 		JLabel labelNewBlackPlayer = new JLabel("New black player: ");
 		JLabel labelExistingBlackPlayer = new JLabel("Existing black player: ");
 		
+
+		setResizable(false);
+		
 		textNewWhitePlayer = new JTextField("");
 		textOldWhitePlayer = new JTextField("");
 		

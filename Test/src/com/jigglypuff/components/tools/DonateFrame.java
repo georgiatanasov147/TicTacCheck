@@ -31,6 +31,9 @@ public class DonateFrame extends JFrame{
 		JLabel amount = new JLabel("Enter donation amount: ");
 		JLabel iban = new JLabel("Enter your IBAN: ");
 		
+
+		setResizable(false);
+		
 		pn = new JTextField("");
 		rn = new JTextField("");
 		am = new JTextField("");

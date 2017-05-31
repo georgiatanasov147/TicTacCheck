@@ -21,7 +21,6 @@ public class Board {
 		img = img.getScaledInstance(280, 400, Image.SCALE_AREA_AVERAGING);
 		board = new int[16][4];
 		map2 = new int[16][3];
-//		map2 = new int[4][4];
 		initialiseBoard();
 		initMap();
 	}

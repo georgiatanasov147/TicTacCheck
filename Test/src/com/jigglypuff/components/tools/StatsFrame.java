@@ -37,6 +37,7 @@ public class StatsFrame extends JFrame{
 		panel.setLayout(new FlowLayout());
 		panel.add(scroll);
 
+		setResizable(false);
 		setLocationRelativeTo(null);
 		add(panel);
 		setVisible(true);

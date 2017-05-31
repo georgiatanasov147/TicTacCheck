@@ -20,6 +20,7 @@ public class MainFrame extends JFrame{
 		for (Piece piece : StaticObjects.pieces) {
 			piece.restart();
 		}
+		setResizable(false);
 		add(StaticObjects.panel);
 		m = new MouseController();
 		addMouseMotionListener(m);

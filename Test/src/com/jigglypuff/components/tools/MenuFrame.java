@@ -34,7 +34,8 @@ public class MenuFrame extends JFrame {
 		JButton about = new JButton("About");
 		JButton donate = new JButton("Donate");
 		JButton quit = new JButton("Quit");
-		
+
+		setResizable(false);
 		panel.setLayout(null);
 		start.setLayout(null);
 		about.setLayout(null);
